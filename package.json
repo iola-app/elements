@@ -1,0 +1,32 @@
+{
+  "name": "@iola/elements",
+  "version": "0.1.0",
+  "description": "Collection of iola custom html elements",
+  "main": "src/index.js",
+  "repository": "git@gitlab.com:thisissparkle/elements.git",
+  "author": "Sergey Kambalin <kambalin@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "camelcase": "^5.3.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/plugin-proposal-decorators": "^7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
+    "@storybook/html": "^5.1.9",
+    "babel-loader": "^8.0.6",
+    "babel-plugin-module-resolver": "^3.2.0",
+    "webpack": "^4.36.1"
+  },
+  "scripts": {
+    "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook"
+  }
+}

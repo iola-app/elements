@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+      "target": "esnext",
+      "module": "commonjs",
+      "experimentalDecorators": true,
+      "allowSyntheticDefaultImports": false,
+
+      "baseUrl": ".",
+      "paths": {
+          "@iola/custom-element/*": ["./libs/custom-element/*"]
+      }
+  },
+  "exclude": ["node_modules"]
+}

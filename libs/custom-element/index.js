@@ -4,7 +4,12 @@ import ReactDom from 'react-dom';
 import extractAttributes from './extractAttributes';
 
 /**
- * @param {Object} attrs
+ * @param {Object} options
+ * @param {String} options.tag
+ * @param {String} options.extends
+ * @param {Array<String>} options.attrs
+ * * @param {Array<String>} options.methods
+ * @param {Array<String> | String} options.styles
  */
 const defineElement = (options = {}) => Component => {
   const observedAttributes = options.attrs || [];

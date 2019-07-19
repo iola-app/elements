@@ -6,7 +6,7 @@
   "repository": "git@gitlab.com:thisissparkle/elements.git",
   "author": "iola",
   "dependencies": {
-    "camelcase": "^5.3.1",
+    "@iola/custom-element": "file:libs/custom-element",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
@@ -21,7 +21,6 @@
     "@babel/runtime": "^7.5.5",
     "@storybook/html": "^5.1.9",
     "babel-loader": "^8.0.6",
-    "babel-plugin-module-resolver": "^3.2.0",
     "common-tags": "^1.8.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",

@@ -1,3 +1,8 @@
-# iola-elements
+# iola elements
+Collection of `iola` Custom Elements
 
-Collection of `iola` custom elements
+# Install
+`npm i`
+
+# Development
+`npm run storybook`

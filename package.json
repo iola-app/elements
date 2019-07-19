@@ -8,7 +8,8 @@
   "dependencies": {
     "@iola/custom-element": "file:libs/custom-element",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-dropzone": "^10.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -19,6 +20,11 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.5.5",
+    "@storybook/addon-actions": "^5.1.9",
+    "@storybook/addon-centered": "^5.1.9",
+    "@storybook/addon-console": "^1.1.1",
+    "@storybook/addon-knobs": "^5.1.9",
+    "@storybook/addon-options": "^5.1.9",
     "@storybook/html": "^5.1.9",
     "babel-loader": "^8.0.6",
     "common-tags": "^1.8.0",

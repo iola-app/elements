@@ -1,9 +1,19 @@
 import React, { Component } from 'react';
-import element from '@iola/custom-element';
+import element, { css } from '@iola/custom-element';
 
-import styles from './styles.scss';
+import styles from './Preview.scss';
 
-@element({ tag: 'iola-preview', styles })
+@element({
+  tag: 'iola-preview',
+  styles: [
+    css`
+      :host {
+        display: block;
+      }
+    `,
+    styles,
+  ]
+})
 export default class Preview extends Component {
   render() {
     return (

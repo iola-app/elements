@@ -25,7 +25,8 @@
     "common-tags": "^1.8.0",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
-    "webpack": "^4.36.1"
+    "webpack": "^4.36.1",
+    "webpack-merge": "^4.2.1"
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",

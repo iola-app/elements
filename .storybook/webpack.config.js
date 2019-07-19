@@ -7,6 +7,7 @@ module.exports = async ({ config, mode }) => merge(config, {
       {
         test: /\.scss$/,
         use: [
+          'to-string-loader',
           'css-loader',
           'sass-loader',
         ],

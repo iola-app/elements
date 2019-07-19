@@ -8,7 +8,7 @@ import extractAttributes from './extractAttributes';
  * @param {String} options.tag
  * @param {String} options.extends
  * @param {Array<String>} options.attrs
- * * @param {Array<String>} options.methods
+ * @param {Array<String>} options.methods
  * @param {Array<String> | String} options.styles
  */
 const defineElement = (options = {}) => Component => {

@@ -3,12 +3,7 @@
       "target": "esnext",
       "module": "commonjs",
       "experimentalDecorators": true,
-      "allowSyntheticDefaultImports": false,
-
-      "baseUrl": ".",
-      "paths": {
-          "@iola/custom-element/*": ["./libs/custom-element/*"]
-      }
+      "allowSyntheticDefaultImports": false
   },
   "exclude": ["node_modules"]
 }

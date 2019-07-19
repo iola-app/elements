@@ -1,10 +1,17 @@
-import { configure } from '@storybook/html';
+import { addParameters, configure } from '@storybook/html';
+import '@storybook/addon-console';
 
-// automatically import all files ending in *.stories.js
-const req = require.context('../src/elements', true, /\.stories\.js$/);
+import loadStories from './stories';
 
-function loadStories() {
-  req.keys().forEach(filename => req(filename));
-}
+// Option defaults:
+addParameters({
+  options: {
+    /**
+     * show addon panel as a vertical panel on the right
+     * @type {Boolean}
+     */
+    addonPanelInRight: true,
+  },
+});
 
 configure(loadStories, module);

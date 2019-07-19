@@ -3,11 +3,11 @@ import { html } from 'common-tags'
 
 import './Preview';
 
-const stories = storiesOf('Elements', module);
+const stories = storiesOf('Elements|iola-preview', module);
 
 /**
  * Stories
  */
-stories.add('Preview', () => html`
+stories.add('Default', () => html`
   <iola-preview />
 `);

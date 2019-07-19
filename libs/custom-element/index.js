@@ -32,6 +32,13 @@ export default (options = {}) => Component => {
 
     connectedCallback() {
       render(this);
+
+      if (options.styles) {
+        const styleTag = document.createElement('style');
+
+        styleTag.innerHTML = options.styles.toString();
+        shadowRoots.get(this).appendChild(styleTag);
+      }
     }
 
     attributeChangedCallback() {

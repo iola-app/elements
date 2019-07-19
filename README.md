@@ -2,7 +2,7 @@
 Collection of `iola` Custom Elements
 
 # Install
-`npm i`
+`yarn`
 
 # Development
-`npm run storybook`
+`yarn storybook`

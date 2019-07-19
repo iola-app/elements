@@ -1,20 +1,25 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import camelCase from 'camelcase';
 
-const extractAttrs = (attrs, element) => attrs.reduce((props, attrName) => {
-  props[camelCase(attrName)] = element.getAttribute(attrName);
+import extractAttributes from './extractAttributes';
 
-  return props;
-}, {});
-
-export default (options = {}) => Component => {
+/**
+ * @param {Object} options
+ * @param {String} options.tag
+ * @param {String} options.extends
+ * @param {Array<String>} options.attrs
+ * @param {Array<String>} options.methods
+ * @param {Array<String> | String} options.styles
+ */
+const defineElement = (options = {}) => Component => {
   const observedAttributes = options.attrs || [];
+  const styles = Array.isArray(options.styles) ? options.styles : [ options.styles ];
+
   const shadowRoots = new WeakMap();
   const componentInstances = new WeakMap();
 
   const render = element => ReactDom.render(
-    React.createElement(Component, extractAttrs(observedAttributes, element)),
+    React.createElement(Component, extractAttributes(observedAttributes, element)),
     shadowRoots.get(element),
     function () {
       componentInstances.set(element, this);
@@ -33,12 +38,15 @@ export default (options = {}) => Component => {
     connectedCallback() {
       render(this);
 
-      if (options.styles) {
-        const styleTag = document.createElement('style');
+      /**
+       * Add styles to the shadow root
+       */
+      styles.forEach(css => {
+        const style = document.createElement('style');
+        style.appendChild(document.createTextNode(css.toString()));
 
-        styleTag.innerHTML = options.styles.toString();
-        shadowRoots.get(this).appendChild(styleTag);
-      }
+        shadowRoots.get(this).appendChild(style);
+      });
     }
 
     attributeChangedCallback() {
@@ -60,8 +68,14 @@ export default (options = {}) => Component => {
   }
 
   if (options.tag) {
-    customElements.define(options.tag, CustomElement);
+    customElements.define(options.tag, CustomElement, {
+      extends: options.extends,
+    });
   }
 
   return CustomElement;
 };
+
+
+export { default as css } from './css';
+export default defineElement;

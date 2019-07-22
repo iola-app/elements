@@ -33,6 +33,7 @@ export default class ImageUpload extends Component {
         multiple={false}
         onDropAccepted={this.onDropAccepted}
         children={this.renderArea}
-      />;
+      />
+    );
   }
 }

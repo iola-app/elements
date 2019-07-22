@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import element from '@iola/custom-element';
+// import element from '@iola/custom-element';
+import element, { css } from '../../../libs/custom-element';
 import Dropzone from 'react-dropzone';
 
 import styles from './ImageUpload.scss';

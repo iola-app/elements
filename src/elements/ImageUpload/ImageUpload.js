@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import element from '@iola/custom-element';
 import Dropzone from 'react-dropzone';
+import element from '@iola/custom-element';
 
 import styles from './ImageUpload.scss';
 
@@ -13,24 +13,26 @@ export default class ImageUpload extends Component {
     console.log('Files', files);
   };
 
+  renderArea = ({ getRootProps, getInputProps }) => {
+    const rootProps = getRootProps();
+    const inputProps = getInputProps();
+
+    return (
+      <div className="container">
+        <div className="dropzone" {...rootProps}>
+          <input {...inputProps} />
+        </div>
+      </div>
+    );
+  };
+
   render() {
     return (
       <Dropzone
+        accept="image/*"
+        multiple={false}
         onDropAccepted={this.onDropAccepted}
-      >
-        {({ getRootProps, getInputProps }) => {
-          const rootProps = getRootProps();
-          const inputProps = getInputProps();
-
-          return (
-            <div className="container">
-              <div className="dropzone" {...rootProps}>
-                <input {...inputProps} />
-              </div>
-            </div>
-          );
-        }}
-      </Dropzone>
-    );
+        children={this.renderArea}
+      />;
   }
 }

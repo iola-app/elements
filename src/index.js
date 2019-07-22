@@ -1,1 +1,1 @@
-import * from './elements';
+import './elements';

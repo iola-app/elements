@@ -14,7 +14,7 @@ stories.addDecorator(withKnobs);
 stories.add('Default', () => {
   const element = document.createElement('iola-image-upload');
 
-  if (boolean('Has background', true)) {
+  if (boolean('Has default value', true)) {
     element.setAttribute('value', backgroundImage);
   }
 

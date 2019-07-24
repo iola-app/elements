@@ -1,35 +1,90 @@
 import React, { Component } from 'react';
-import element from '@iola/custom-element';
+import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
+import classes from 'classnames';
+import element from '@iola/custom-element';
 
 import styles from './ImageUpload.scss';
 
 @element({
   tag: 'iola-image-upload',
+  attrs: ['value'],
+  methods: ['getFile', 'getUrl'],
   styles,
+
+  /**
+   * @param {object} props
+   * @param {HTMLElement} element
+   */
+  props: (props, element) => ({
+    ...props,
+    onChange: ({ file, url }) => element.dispatchEvent(
+      new CustomEvent('change', {
+        detail: { file, url },
+      }),
+    ),
+  }),
 })
 export default class ImageUpload extends Component {
-  onDropAccepted = (files) => {
-    console.log('Files', files);
+  static propTypes = {
+    value: PropTypes.string,
+    onChange: PropTypes.func,
+  };
+
+  static getDerivedStateFromProps(props, state) {
+    return {
+      ...state,
+      url: state.url || props.value,
+    };
+  }
+
+  state = {
+    url: null,
+    file: null,
+  };
+
+  getFile = () => this.state.file;
+  getUrl = () => this.state.url;
+
+  onDropAccepted = ([ file ]) => {
+    const { onChange } = this.props;
+    const url = URL.createObjectURL(file);
+
+    this.setState({ url, file });
+    onChange({ file, url });
+  };
+
+  renderArea = (props) => {
+    const { url } = this.state;
+    const { getRootProps, getInputProps, isDragActive } = props;
+
+    const rootProps = getRootProps();
+    const inputProps = getInputProps();
+    const previewStyle = url && { backgroundImage: `url(${url})` };
+    const containerClass = classes([ 'container', {
+      'drag-active': isDragActive,
+    }]);
+
+    return (
+      <div className={containerClass}>
+        <div className="dropzone" {...rootProps}>
+          <input {...inputProps} />
+
+          <div className="preview" style={previewStyle}>
+            <div className="overlay" />
+          </div>
+        </div>
+      </div>
+    );
   };
 
   render() {
     return (
       <Dropzone
+        accept="image/*"
         onDropAccepted={this.onDropAccepted}
       >
-        {({ getRootProps, getInputProps }) => {
-          const rootProps = getRootProps();
-          const inputProps = getInputProps();
-
-          return (
-            <div className="container">
-              <div className="dropzone" {...rootProps}>
-                <input {...inputProps} />
-              </div>
-            </div>
-          );
-        }}
+        {this.renderArea}
       </Dropzone>
     );
   }

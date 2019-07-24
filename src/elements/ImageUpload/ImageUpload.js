@@ -1,26 +1,56 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
+import classes from 'classnames';
 import element from '@iola/custom-element';
 
 import styles from './ImageUpload.scss';
 
 @element({
   tag: 'iola-image-upload',
+  attrs: ['value'],
   styles,
 })
 export default class ImageUpload extends Component {
-  onDropAccepted = (files) => {
-    console.log('Files', files);
+  static propTypes = {
+    value: PropTypes.string,
   };
 
-  renderArea = ({ getRootProps, getInputProps }) => {
+  static getDerivedStateFromProps(props, state) {
+    return {
+      ...state,
+      value: state.value || props.value,
+    };
+  }
+
+  state = {
+    value: null,
+  };
+
+  onDropAccepted = ([ file ]) => {
+    const fileReader = new FileReader();
+    fileReader.onload = () => this.setState({ value: fileReader.result });
+    fileReader.readAsDataURL(file);
+  };
+
+  renderArea = (props) => {
+    const { value } = this.state;
+    const { getRootProps, getInputProps, isDragActive } = props;
+
     const rootProps = getRootProps();
     const inputProps = getInputProps();
+    const containerClass = classes([ 'container', {
+      'drag-active': isDragActive,
+    }]);
 
     return (
-      <div className="container">
+      <div className={containerClass}>
         <div className="dropzone" {...rootProps}>
           <input {...inputProps} />
+
+          <div className="preview" style={{ backgroundImage: `url(${value})` }}>
+            <div className="overlay" />
+          </div>
         </div>
       </div>
     );
@@ -30,10 +60,10 @@ export default class ImageUpload extends Component {
     return (
       <Dropzone
         accept="image/*"
-        multiple={false}
         onDropAccepted={this.onDropAccepted}
-        children={this.renderArea}
-      />
+      >
+        {this.renderArea}
+      </Dropzone>
     );
   }
 }

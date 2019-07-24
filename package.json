@@ -7,6 +7,8 @@
   "author": "iola",
   "dependencies": {
     "@iola/custom-element": "file:libs/custom-element",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-dropzone": "^10.1.5"

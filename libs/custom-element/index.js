@@ -68,9 +68,13 @@ const defineElement = (options = {}) => Component => {
   }
 
   if (options.tag) {
-    customElements.define(options.tag, CustomElement, {
-      extends: options.extends,
-    });
+    try {
+      customElements.define(options.tag, CustomElement, {
+        extends: options.extends,
+      });
+    } catch {
+      // Pass...
+    }
   }
 
   return CustomElement;

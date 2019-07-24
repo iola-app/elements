@@ -4,12 +4,13 @@ import ReactDom from 'react-dom';
 import extractAttributes from './extractAttributes';
 
 /**
- * @param {Object} options
- * @param {String} options.tag
- * @param {String} options.extends
- * @param {Array<String>} options.attrs
- * @param {Array<String>} options.methods
- * @param {Array<String> | String} options.styles
+ * @param {object} options
+ * @param {string} options.tag
+ * @param {string} options.extends
+ * @param {string[]} options.attrs
+ * @param {string[]} options.methods
+ * @param {string[] | string} options.styles
+ * @param {function} options.props
  */
 const defineElement = (options = {}) => Component => {
   const observedAttributes = options.attrs || [];
@@ -18,8 +19,12 @@ const defineElement = (options = {}) => Component => {
   const shadowRoots = new WeakMap();
   const componentInstances = new WeakMap();
 
+  const getProps = (props, element) => options.props?.(props, element) || props;
   const render = element => ReactDom.render(
-    React.createElement(Component, extractAttributes(observedAttributes, element)),
+    React.createElement(
+      Component,
+      getProps(extractAttributes(observedAttributes, element), element),
+    ),
     shadowRoots.get(element),
     function () {
       componentInstances.set(element, this);

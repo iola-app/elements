@@ -1,5 +1,4 @@
 const path = require('path');
-const glob = require('glob');
 const webpack = require('webpack');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
@@ -21,16 +20,12 @@ module.exports = (env) => {
 
   return {
     mode: 'production',
-    entry: glob.sync('./src/elements/**/index.js').reduce((result, path) => {
-      const name = path.match(/^\.\/src\/elements\/(.*)\/index\.js$/)[1];
-
-      return { ...result, [name]: path };
-    }, {}),
+    entry: './src/index.js',
     module: {
       rules: [
         {
           test: /\.(js)$/,
-          exclude: /node_modules/,
+          // exclude: /node_modules/, // TODO: return it after custom-element will separate
           use: ['babel-loader'],
         },
         {
@@ -53,8 +48,10 @@ module.exports = (env) => {
       minimize: true,
     },
     output: {
+      library: '@iola/elements',
+      libraryTarget: 'commonjs',
       path: path.join(__dirname, 'dist'),
-      filename: '[name].js',
+      filename: 'index.js',
     },
   };
 };

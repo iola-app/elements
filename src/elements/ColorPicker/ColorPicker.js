@@ -75,12 +75,14 @@ export default class ColorPicker extends Component {
   static getDerivedStateFromProps(props, state) {
     return {
       ...state,
-      color: state.color || props.value,
+      value: props.value,
+      color: props.value === state.value ? state.color : props.value,
     };
   }
 
   selfRef = createRef();
   state = {
+    value: null,
     color: null,
     visible: false,
   };

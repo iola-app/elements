@@ -45,10 +45,7 @@ export default class ImageUpload extends Component {
     file: null,
   };
 
-  open = () => {
-    console.log('Open dd');
-    this.dropzone.current?.open();
-  }
+  open = () => this.dropzone.current?.open();
   getFile = () => this.state.file;
   getUrl = () => this.state.url;
 

@@ -46,7 +46,6 @@
     "webpack-visualizer-plugin": "^0.1.11"
   },
   "scripts": {
-    "postinstall": "yarn upgrade @iola",
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "lint": "eslint \"./src/**/*.js\" --quiet; exit 0",

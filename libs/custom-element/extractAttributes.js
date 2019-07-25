@@ -5,7 +5,7 @@ import camelCase from 'camelcase';
  * @param {HTMLElement} element
  */
 export default (attrs, element) => attrs.reduce((props, attrName) => {
- props[camelCase(attrName)] = element.getAttribute(attrName);
+ props[camelCase(attrName)] = element.getAttribute(attrName) || undefined;
 
  return props;
 }, {});

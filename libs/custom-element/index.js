@@ -46,7 +46,7 @@ const defineElement = (options = {}) => Component => {
       /**
        * Add styles to the shadow root
        */
-      styles.forEach(css => {
+      styles.filter(Boolean).forEach(css => {
         const style = document.createElement('style');
         style.appendChild(document.createTextNode(css.toString()));
 

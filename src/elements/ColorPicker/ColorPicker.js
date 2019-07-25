@@ -4,6 +4,8 @@ import element, { css } from '@iola/custom-element';
 import { SketchPicker } from 'react-color';
 import classes from 'classnames';
 
+import colors from './colors';
+
 @element({
   tag: 'iola-color-picker',
   attrs: ['value'],
@@ -66,6 +68,10 @@ export default class ColorPicker extends Component {
     element: PropTypes.instanceOf(HTMLElement),
   };
 
+  static defaultProps = {
+    value: colors[0],
+  };
+
   static getDerivedStateFromProps(props, state) {
     return {
       ...state,
@@ -124,6 +130,7 @@ export default class ColorPicker extends Component {
         />
         <div className="picker-wrap">
           <SketchPicker
+            presetColors={colors}
             disableAlpha
             className="picker"
             color={color}

@@ -13,7 +13,11 @@ stories.addDecorator(withKnobs);
 stories.add('Default', () => {
   const element = document.createElement('iola-color-picker');
 
-  element.setAttribute('value', color('Value'));
+  const value = color('Value');
+  if (value) {
+    element.setAttribute('value', value);
+  }
+
   element.addEventListener('change', action('Change'));
 
   return element;

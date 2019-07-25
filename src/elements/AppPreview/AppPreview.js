@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-// import element, { css } from '@iola/custom-element';
-import element, { css } from '../../../libs/custom-element';
+import element, { css } from '@iola/custom-element';
 
 import styles from './AppPreview.scss';
 

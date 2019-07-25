@@ -47,8 +47,7 @@
   "scripts": {
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
-    "lint": "eslint \"./src/**/*.js\" --quiet; exit 0"
-    "storybook:build": "build-storybook",
+    "lint": "eslint \"./src/**/*.js\" --quiet; exit 0",
     "build": "webpack",
     "build:analyse": "webpack --env.analyse"
   }

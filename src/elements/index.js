@@ -1,2 +1,2 @@
-export { default as Preview } from './Preview';
+export { default as AppPreview } from './AppPreview';
 export { default as ImagePicker } from './ImagePicker';

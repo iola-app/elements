@@ -1,7 +1,7 @@
 import camelCase from 'camelcase';
 
 /**
- * @param {Array<String>} attrs
+ * @param {string[]} attrs
  * @param {HTMLElement} element
  */
 export default (attrs, element) => attrs.reduce((props, attrName) => {

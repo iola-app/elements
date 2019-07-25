@@ -2,11 +2,13 @@
   "name": "@iola/elements",
   "version": "0.1.0",
   "description": "Collection of iola Custom Elements",
-  "author": "iola",
-  "repository": "git@gitlab.com:thisissparkle/elements.git",
   "main": "src/index.js",
-  "license": "ISC",
+  "repository": "git@gitlab.com:thisissparkle/elements.git",
+  "author": "iola",
   "dependencies": {
+    "@iola/custom-element": "file:libs/custom-element",
+    "classnames": "^2.2.6",
+    "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-dropzone": "^10.1.5"
@@ -26,10 +28,12 @@
     "@storybook/addon-knobs": "^5.1.9",
     "@storybook/addon-options": "^5.1.9",
     "@storybook/html": "^5.1.9",
+    "babel-eslint": "^10.0.2",
     "babel-loader": "^8.0.6",
     "clean-webpack-plugin": "^3.0.0",
     "common-tags": "^1.8.0",
-    "glob": "^7.1.4",
+    "eslint": "^6.1.0",
+    "eslint-plugin-react": "^7.14.2",
     "node-sass": "^4.12.0",
     "sass-loader": "^7.1.0",
     "to-string-loader": "^1.1.5",
@@ -42,6 +46,8 @@
   },
   "scripts": {
     "storybook": "start-storybook -p 6006",
+    "storybook:build": "build-storybook",
+    "lint": "eslint \"./src/**/*.js\" --quiet; exit 0"
     "storybook:build": "build-storybook",
     "build": "webpack",
     "build:analyse": "webpack --env.analyse"

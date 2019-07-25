@@ -1,5 +1,19 @@
 $border-radius: 10px;
 
+@mixin icon-bg {
+  background-size: 50px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+@mixin absolute-fill {
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+}
+
 :host {
   display: inline-block;
   width: 200px;
@@ -16,6 +30,7 @@ $border-radius: 10px;
   border-style: dashed;
   border-color: inherit;
   border-radius: $border-radius;
+  box-sizing: border-box;
 }
 
 .dropzone {
@@ -35,21 +50,31 @@ $border-radius: 10px;
 }
 
 .overlay {
+  @include icon-bg;
+  @include absolute-fill;
+
   opacity: 0;
-  position: absolute;
-  top: 0px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
   background-image: url(./drop.svg);
   background-color: rgba($color: #000000, $alpha: 0.1);
-  background-size: 30%;
-  background-position: center;
-  background-repeat: no-repeat;
 
   transition: opacity 100ms;
 }
 
-.drag-active .overlay {
-  opacity: 1;
+.no-value {
+  .preview {
+    @include icon-bg;
+    background-image: url(./no-value.svg);
+  }
+}
+
+.drag-active {
+  .overlay {
+    opacity: 1;
+  }
+
+  .no-value {
+    .preview {
+      background-image: none;
+    }
+  }
 }

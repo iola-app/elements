@@ -63,6 +63,7 @@ export default class ImageUpload extends Component {
     const previewStyle = url && { backgroundImage: `url(${url})` };
     const containerClass = classes([ 'container', {
       'drag-active': isDragActive,
+      'no-value': !url,
     }]);
 
     return (

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, createRef } from 'react';
 import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 import classes from 'classnames';
@@ -9,7 +9,7 @@ import styles from './ImageUpload.scss';
 @element({
   tag: 'iola-image-upload',
   attrs: ['value'],
-  methods: ['getFile', 'getUrl'],
+  methods: ['getFile', 'getUrl', 'open'],
   styles,
 
   /**
@@ -38,11 +38,17 @@ export default class ImageUpload extends Component {
     };
   }
 
+  dropzone = createRef();
+
   state = {
     url: null,
     file: null,
   };
 
+  open = () => {
+    console.log('Open dd');
+    this.dropzone.current?.open();
+  }
   getFile = () => this.state.file;
   getUrl = () => this.state.url;
 
@@ -82,6 +88,7 @@ export default class ImageUpload extends Component {
   render() {
     return (
       <Dropzone
+        ref={this.dropzone}
         accept="image/*"
         onDropAccepted={this.onDropAccepted}
       >

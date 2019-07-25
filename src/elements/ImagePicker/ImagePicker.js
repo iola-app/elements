@@ -4,10 +4,10 @@ import Dropzone from 'react-dropzone';
 import classes from 'classnames';
 import element from '@iola/custom-element';
 
-import styles from './ImageUpload.scss';
+import styles from './ImagePicker.scss';
 
 @element({
-  tag: 'iola-image-upload',
+  tag: 'iola-image-picker',
   attrs: ['value'],
   methods: ['getFile', 'getUrl', 'open'],
   styles,
@@ -25,7 +25,7 @@ import styles from './ImageUpload.scss';
     ),
   }),
 })
-export default class ImageUpload extends Component {
+export default class ImagePicker extends Component {
   static propTypes = {
     value: PropTypes.string,
     onChange: PropTypes.func,
@@ -53,8 +53,11 @@ export default class ImageUpload extends Component {
     const { onChange } = this.props;
     const url = URL.createObjectURL(file);
 
-    this.setState({ url, file });
     onChange({ file, url });
+
+    const image = new Image();
+    image.src = url;
+    image.onload = () => this.setState({ url, file });
   };
 
   renderArea = (props) => {

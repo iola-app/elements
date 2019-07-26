@@ -1,8 +1,10 @@
 const path = require('path');
-const webpack = require('webpack');
+const merge = require('webpack-merge');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const Visualizer = require('webpack-visualizer-plugin');
 const WebpackBundleAnalyzer = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+const commonConfig = require('./common');
 
 module.exports = (env) => {
   const plugins = [
@@ -18,28 +20,14 @@ module.exports = (env) => {
     }));
   }
 
-  return {
+  const buildConfig = {
     mode: 'production',
     entry: './src/index.js',
     module: {
       rules: [
         {
-          test: /\.(js)$/,
-          // exclude: /node_modules/, // TODO: return it after custom-element will separate
-          use: ['babel-loader'],
-        },
-        {
-          test: /\.scss$/,
-          use: [
-            'to-string-loader',
-            'css-loader',
-            'sass-loader',
-          ],
-          include: path.join(__dirname, 'src'),
-        },
-        {
           test: /\.(png|gif|jpg|svg|eot|svg|ttf|woff|woff2)$/,
-          use: 'url-loader?limit=20480&name=assets/[name]-[hash].[ext]',
+          use: 'url-loader',
         },
       ],
     },
@@ -50,8 +38,10 @@ module.exports = (env) => {
     output: {
       library: '@iola/elements',
       libraryTarget: 'commonjs',
-      path: path.join(__dirname, 'dist'),
+      path: path.join(__dirname, '../dist'),
       filename: 'index.js',
     },
   };
+
+  return merge(buildConfig, commonConfig);
 };

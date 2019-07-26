@@ -2,11 +2,11 @@
   "name": "@iola/elements",
   "version": "0.1.0",
   "description": "Collection of iola Custom Elements",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "repository": "git@gitlab.com:thisissparkle/elements.git",
   "author": "iola",
   "dependencies": {
-    "@iola/custom-element": "./libs/custom-element",
+    "@iola/custom-element": "file:./libs/custom-element",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -49,7 +49,7 @@
     "storybook": "start-storybook -p 6006",
     "storybook:build": "build-storybook",
     "lint": "eslint \"./src/**/*.js\" --quiet; exit 0",
-    "build": "webpack",
+    "build": "webpack --config .webpack/config.js",
     "build:analyse": "webpack --env.analyse"
   }
 }

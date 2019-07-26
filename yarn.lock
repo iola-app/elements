@@ -940,7 +940,7 @@
   resolved "https://registry.yarnpkg.com/@icons/material/-/material-0.2.4.tgz#e90c9f71768b3736e76d7dd6783fc6c2afa88bc8"
   integrity sha512-QPcGmICAPbGLGb6F/yNf/KzKqvFx8z5qx3D1yFqVAjoFmXK35EgyW+cJ57Te3CNsmzblwtzakLGFqHPqrfb4Tw==
 
-"@iola/custom-element@./libs/custom-element":
+"@iola/custom-element@file:./libs/custom-element":
   version "0.1.0"
   dependencies:
     camelcase "^5.3.1"

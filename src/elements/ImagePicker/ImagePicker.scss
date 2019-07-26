@@ -72,7 +72,7 @@ $border-radius: 10px;
     opacity: 1;
   }
 
-  .no-value {
+  &.no-value {
     .preview {
       background-image: none;
     }

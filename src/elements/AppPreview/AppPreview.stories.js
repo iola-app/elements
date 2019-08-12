@@ -13,7 +13,6 @@ stories.addDecorator(withKnobs);
 stories.add('Default', () => {
   const element = document.createElement('iola-app-preview');
   element.setAttribute('primary-color', color('Primary color', '#5259FF'));
-  console.log(background);
   element.setAttribute('background', select('Background', {
     'No background': null,
     'Background image': background,

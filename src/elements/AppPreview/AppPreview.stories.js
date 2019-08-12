@@ -12,7 +12,14 @@ stories.addDecorator(withKnobs);
  */
 stories.add('Default', () => {
   const element = document.createElement('iola-app-preview');
+
+  element.setAttribute('logo', select('Logo', {
+    'No background': null,
+    'Background image': 'https://goodlogo.com/images/logos/lego_logo_2462.gif',
+  }));
+
   element.setAttribute('primary-color', color('Primary color', '#5259FF'));
+
   element.setAttribute('background', select('Background', {
     'No background': null,
     'Background image': background,

@@ -24,19 +24,10 @@ export default class AppPreview extends Component {
   };
 
   render() {
-    const { background, primaryColor } = this.props;
-
-    const screenStyle = background && {
-      backgroundImage: `url(${background})`,
-    };
-
-    const buttonStyle = primaryColor && {
-      backgroundColor: primaryColor,
-    };
-
-    const logoStyle = {
-      // TODO: add support of logo attr
-    }
+    const { background, logo, primaryColor } = this.props;
+    const screenStyle = background && { backgroundImage: `url(${background})` };
+    const logoStyle = logo && { backgroundImage: `url(${logo})` };
+    const buttonStyle = primaryColor && { backgroundColor: primaryColor };
 
     return (
       <div className="app-preview">
@@ -45,6 +36,7 @@ export default class AppPreview extends Component {
             <div className="icons"></div>
             <div className="time">12:30</div>
           </div>
+          <div className="logo" style={logoStyle} />
           <div className="title">Sign In</div>
           <div className="form">
             <input className="input login" placeholder="Email or login" type="text" />

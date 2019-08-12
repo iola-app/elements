@@ -6,7 +6,7 @@
   "repository": "git@gitlab.com:thisissparkle/elements.git",
   "author": "iola",
   "dependencies": {
-    "@iola/custom-element": "file:./libs/custom-element",
+    "@iola/custom-element": "git+ssh://git@gitlab.com/thisissparkle/custom-element.git",
     "classnames": "^2.2.6",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",

@@ -54,6 +54,8 @@ import colors from './colors';
       position: absolute;
       margin-top: 5px;
       top: 100%;
+
+      z-index: 3;
     }
 
     .visible .picker-wrap {

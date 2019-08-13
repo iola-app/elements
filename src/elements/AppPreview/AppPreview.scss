@@ -1,7 +1,11 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:500&display=swap");
 
 .app-preview {
+  box-sizing: border-box;
+  display: flex;
   align-self: center;
+  height: 100%;
+  width: 100%;
   padding: 41px 14px;
   border-radius: 42px;
   font-family: "Roboto", sans-serif;
@@ -13,8 +17,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 375px;
-    height: 667px;
+    flex: 1;
     padding: 0 37px 30px; // 10% = 37px
     color: #FFFFFF;
     background-size: cover;

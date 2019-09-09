@@ -2,18 +2,13 @@ const path = require('path');
 
 const include = [
   path.resolve(__dirname, '../src'),
-
-  /**
-   * TODO: Remove it when we move the lib into real npm package
-   */
-  path.resolve(__dirname, '../node_modules/@iola/custom-element'),
 ];
 
 module.exports = {
   module: {
     rules: [
       {
-        test: /(\.js)$/,
+        test: /\.(js|ts|tsx)$/,
         loader: 'babel-loader',
         include,
       },
@@ -27,5 +22,8 @@ module.exports = {
         include,
       },
     ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
 };

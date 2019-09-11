@@ -1,11 +1,11 @@
-import React, { FunctionComponent } from 'react';
+import React, { FC } from 'react';
 
 export type Props = {
   type?: string;
 };
 
-const AppBanner = ({ type }: Props) => (
-  <div>Hello Typescript {type}</div>
+const AppBanner: FC<Props> = ({ type }) => (
+  <div className="red">Hello Typescript {type}</div>
 );
 
 export default AppBanner;

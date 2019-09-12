@@ -13,6 +13,6 @@ const stories = storiesOf('Elements|iola-app-banner', module);
 /**
  * Stories
  */
-stories.add('Default', () => html`
+stories.add('Element', () => html`
   <iola-app-banner></iola-app-banner>
 `);

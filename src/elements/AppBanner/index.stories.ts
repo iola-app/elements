@@ -35,3 +35,7 @@ stories.add('No text', () => html`
 stories.add('Buttons only', () => html`
   <iola-app-banner has-logo="no"></iola-app-banner>
 `);
+
+stories.add('Logo only', () => html`
+  <iola-app-banner has-ios="no" has-android="no"></iola-app-banner>
+`);

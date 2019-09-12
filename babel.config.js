@@ -1,6 +1,7 @@
 module.exports = {
   presets: [
     '@babel/preset-react',
+    '@babel/typescript',
     ['@babel/preset-env', {
       targets: {
         browsers: ['last 2 versions', 'safari >= 7', 'ie >= 10'],

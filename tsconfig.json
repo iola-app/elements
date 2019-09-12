@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@iola/config": ["iola.json"]
+    }
+  },
+  "include": [
+    "src",
+    "typings"
+  ]
+}

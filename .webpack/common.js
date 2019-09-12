@@ -1,19 +1,15 @@
 const path = require('path');
 
+const rootDir = path.resolve(__dirname, '..');
 const include = [
-  path.resolve(__dirname, '../src'),
-
-  /**
-   * TODO: Remove it when we move the lib into real npm package
-   */
-  path.resolve(__dirname, '../node_modules/@iola/custom-element'),
+  path.resolve(rootDir, 'src'),
 ];
 
 module.exports = {
   module: {
     rules: [
       {
-        test: /(\.js)$/,
+        test: /\.(js|ts|tsx)$/,
         loader: 'babel-loader',
         include,
       },
@@ -27,5 +23,11 @@ module.exports = {
         include,
       },
     ],
+  },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+    alias: {
+      '@iola/config': path.resolve(rootDir, 'iola.json'),
+    },
   },
 };

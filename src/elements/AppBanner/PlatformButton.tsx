@@ -10,5 +10,5 @@ const labels: Record<Props['platform'], string> = {
 };
 
 export default ({ platform = 'ios' }: Props) => (
-  <button className="platform-button {platform}">{labels[platform]}</button>
+  <a href="#" className={`button ${platform}`}>{labels[platform]}</a>
 );

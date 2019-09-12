@@ -18,7 +18,7 @@ stories.addDecorator(story => html`
 /**
  * Stories
  */
-const text = "Go mobile with iola.<br />Find out <a href='#'>more</a>";
+const text = "Go mobile with iola.<br />Find out <a href='https://iola.app/for-users/'>more</a>";
 stories.add('Full banner', () => html`
   <iola-app-banner text="${text}"></iola-app-banner>
 `);

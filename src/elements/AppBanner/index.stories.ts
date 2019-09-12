@@ -1,5 +1,5 @@
 import { storiesOf } from '@storybook/html';
-import { html,  } from 'common-tags';
+import { html } from 'common-tags';
 import { defineElements } from '@iola/custom-element';
 
 import AppBanner from '.';
@@ -9,6 +9,11 @@ defineElements({
 });
 
 const stories = storiesOf('Elements|iola-app-banner', module);
+stories.addDecorator(story => html`
+  <div style="width: 220px; border: 1px dashed #eee; padding: 20px;">
+    ${story()}
+  </div>
+`);
 
 /**
  * Stories

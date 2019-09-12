@@ -1,6 +1,7 @@
 import { storiesOf } from '@storybook/html';
 import { html } from 'common-tags';
 import { defineElements } from '@iola/custom-element';
+import { userInstructionsUrl } from '@iola/config';
 
 import AppBanner from '.';
 
@@ -18,7 +19,7 @@ stories.addDecorator(story => html`
 /**
  * Stories
  */
-const text = "Go mobile with iola.<br />Find out <a href='https://iola.app/for-users/'>more</a>";
+const text = `Go mobile with iola.<br />Find out <a href='${userInstructionsUrl}'>more</a>`;
 stories.add('Full banner', () => html`
   <iola-app-banner text="${text}"></iola-app-banner>
 `);

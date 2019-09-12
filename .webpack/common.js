@@ -1,7 +1,8 @@
 const path = require('path');
 
+const rootDir = path.resolve(__dirname, '..');
 const include = [
-  path.resolve(__dirname, '../src'),
+  path.resolve(rootDir, 'src'),
 ];
 
 module.exports = {
@@ -25,5 +26,8 @@ module.exports = {
   },
   resolve: {
     extensions: [ '.tsx', '.ts', '.js' ],
+    alias: {
+      '@iola/config': path.resolve(rootDir, 'iola.json'),
+    },
   },
 };

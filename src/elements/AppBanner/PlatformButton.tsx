@@ -1,14 +1,19 @@
-import React, { FC } from 'react';
+import React from 'react';
+import { appleStoreUrl, googleStoreUrl } from '@iola/config';
 
+type Platform = 'ios' | 'android';
+type Options = { url: string, label: string };
 type Props = {
-  platform: 'ios' | 'android';
+  platform: Platform;
 };
 
-const labels: Record<Props['platform'], string> = {
-  ios: 'iOS',
-  android: 'Android',
+const options: Record<Platform, Options> = {
+  ios: { label: 'iOS', url: appleStoreUrl },
+  android: { label: 'Android', url: googleStoreUrl }
 };
 
 export default ({ platform = 'ios' }: Props) => (
-  <a href="#" className={`button ${platform}`}>{labels[platform]}</a>
+  <a href={options[platform].url} className={`button ${platform}`}>
+    {options[platform].label}
+  </a>
 );

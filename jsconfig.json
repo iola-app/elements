@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
-      "target": "esnext",
-      "module": "commonjs",
-      "experimentalDecorators": true,
-      "allowSyntheticDefaultImports": false
+    "target": "esnext",
+    "module": "commonjs",
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": false,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "paths": {
+      "@iola/config": ["iola.json"]
+    }
   },
   "exclude": ["node_modules"]
 }

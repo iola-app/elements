@@ -12,10 +12,12 @@ module.exports = (env) => {
   ];
 
   if (env && env.analyse) {
-    plugins.push(new Visualizer());
+    plugins.push(new Visualizer({
+      filename: './report/statistics.html',
+    }));
     plugins.push(new WebpackBundleAnalyzer({
       analyzerMode: 'static',
-      reportFilename: './report.html',
+      reportFilename: './report/structure.html',
       openAnalyzer: true,
     }));
   }

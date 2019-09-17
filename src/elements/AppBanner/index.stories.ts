@@ -39,3 +39,7 @@ stories.add('Buttons only', () => html`
 stories.add('Logo only', () => html`
   <iola-app-banner has-ios="no" has-android="no"></iola-app-banner>
 `);
+
+stories.add('Custom logo url', () => html`
+  <iola-app-banner text="${text}" logo-url="https://google.com"></iola-app-banner>
+`);

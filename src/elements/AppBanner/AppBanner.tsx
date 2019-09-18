@@ -4,14 +4,21 @@ import { userInstructionsUrl } from '@iola/config';
 
 type Props = {
   text?: string;
+  logoUrl?: string;
   hasLogo?: boolean;
   hasIos?: boolean;
   hasAndroid?: boolean;
 };
 
-export default ({ text, hasLogo = true, hasIos = true, hasAndroid = true }: Props) => (
+export default ({
+  text,
+  logoUrl = userInstructionsUrl,
+  hasLogo = true,
+  hasIos = true,
+  hasAndroid = true,
+}: Props) => (
   <div className="banner">
-    {hasLogo && <a className="logo" href={userInstructionsUrl}></a>}
+    {hasLogo && <a className="logo" href={logoUrl}></a>}
     {text && <div className="text" dangerouslySetInnerHTML={{ __html: text }}></div>}
     {hasIos && <Button platform="ios" />}
     {hasAndroid && <Button platform="android" />}
